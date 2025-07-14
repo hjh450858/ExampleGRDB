@@ -26,7 +26,10 @@ class ViewController: UIViewController {
     
     let addBtn = UIButton(type: .system).then {
         $0.setTitle("저장하기", for: .normal)
-        $0.titleLabel?.font = UIFont.systemFont(ofSize: 24)
+        $0.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        $0.layer.borderColor = UIColor.black.cgColor
+        $0.layer.borderWidth = 0.3
+        $0.layer.cornerRadius = 8
     }
     
     var memos = BehaviorRelay<[MemoModel]>(value: [])
@@ -58,7 +61,7 @@ class ViewController: UIViewController {
         }
         
         addBtn.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.height.equalTo(44)
         }
